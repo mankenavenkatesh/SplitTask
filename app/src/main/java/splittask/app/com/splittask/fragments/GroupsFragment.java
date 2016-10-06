@@ -8,17 +8,25 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
-import splittask.app.com.splittask.CustomList;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import splittask.app.com.splittask.CustomizedAdapter;
 import splittask.app.com.splittask.GroupActivity;
 import splittask.app.com.splittask.R;
 
 
 public class GroupsFragment extends Fragment {
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
     String[] groups={"PCG-PD_India","Devopss","lacerte"};
     ListView list;
     Toolbar toolbar;
@@ -30,21 +38,29 @@ public class GroupsFragment extends Fragment {
         //toolbar.setTitle("My Groups");
 
 
+        expListView = (ExpandableListView) rootView.findViewById(R.id.lvExp);
+        //CustomList adapter = new
+          //      CustomList(getActivity(), groups);
+        //list=(ListView)rootView.findViewById(R.id.list);
 
-        CustomList adapter = new
-                CustomList(getActivity(), groups);
-        list=(ListView)rootView.findViewById(R.id.list);
+        //list.setAdapter(adapter);
+        //list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        list.setAdapter(adapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+          //  @Override
+           // public void onItemClick(AdapterView<?> parent, View view,
+                                 //   int position, long id) {
+          //      Toast.makeText(getActivity(), "You Clicked at " +groups[+ position], Toast.LENGTH_SHORT).show();
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(getActivity(), "You Clicked at " +groups[+ position], Toast.LENGTH_SHORT).show();
+        //    }
+        //});
 
-            }
-        });
+            prepareListData();
+
+            listAdapter = new CustomizedAdapter(this.getActivity(), listDataHeader, listDataChild);
+
+            // setting list adapter
+            expListView.setAdapter(listAdapter);
+
 
 
         FloatingActionButton myFab = (FloatingActionButton) rootView.findViewById(R.id.fab);
@@ -65,5 +81,40 @@ public class GroupsFragment extends Fragment {
         return rootView;
     }
 
+    private void prepareListData() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        // Adding child data
+        listDataHeader.add("PCG-PD_India");
+        listDataHeader.add("Devopss");
+        listDataHeader.add("lacerte");
+
+        // Adding child data
+        List<String> pcg = new ArrayList<String>();
+        pcg.add("task1");
+        pcg.add("task2");
+        pcg.add("task3");
+        pcg.add("task4");
+        List<String> devopss = new ArrayList<String>();
+
+        devopss.add("task1");
+        devopss.add("task2");
+        devopss.add("task3");
+
+
+        List<String> lacerte = new ArrayList<String>();
+        lacerte.add("task1");
+        lacerte.add("task2");
+
+        listDataChild.put(listDataHeader.get(0), pcg); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), devopss);
+        listDataChild.put(listDataHeader.get(2), lacerte);
+    }
+
+
 
 }
+
+
+

@@ -14,12 +14,9 @@
     tools:showIn="@layout/activity_group_list">
 
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-    </ListView>
-
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
 
 </RelativeLayout>
