@@ -84,7 +84,7 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.my_task) {
             // Handle the camera action
         } else if (id == R.id.groups) {
-            Intent intent = new Intent(this, GroupActivity.class);
+            Intent intent = new Intent(this, GroupListActivity.class);
 
             startActivity(intent);
 
