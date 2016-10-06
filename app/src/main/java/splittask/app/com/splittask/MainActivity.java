@@ -1,13 +1,10 @@
 package splittask.app.com.splittask;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class MainActivity extends FragmentActivity {
@@ -44,6 +41,11 @@ public class MainActivity extends FragmentActivity {
             }
 
         });
+    }
+    public void trial(View view){
+        Intent intent = new Intent(this, GroupActivity.class);
+
+        startActivity(intent);
     }
 
 }

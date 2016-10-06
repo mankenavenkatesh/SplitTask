@@ -1,18 +1,18 @@
 package splittask.app.com.splittask;
 
-import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -22,9 +22,10 @@ import java.util.List;
 public class GroupActivity extends AppCompatActivity {
     AutoCompleteTextView text;
     Button addBtn;
-    String[] contacts={"kusum","venky","shashank","suganti","namrata","sharath"};
+    String[] groups={"PCG-PD_India","Devopss","lacerte"};
     ArrayList<String> list = new ArrayList<String>();
     ArrayAdapter<String> listAdapter;
+    EditText groupName;
     ListView listView;
     private List<String> mItems;
     private CompleteListAdapter mListAdapter;
@@ -33,6 +34,7 @@ public class GroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         final List<String> ListElementsArrayList = new ArrayList<String>(Arrays.asList(ListElements));
@@ -41,7 +43,7 @@ public class GroupActivity extends AppCompatActivity {
         addBtn = (Button)findViewById(R.id.addBtn);
 
         text=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,contacts);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,groups);
         mListAdapter = new CompleteListAdapter(this, mItems);
         text.setAdapter(adapter);
         listView = (ListView) findViewById(R.id.participantList);
@@ -76,6 +78,18 @@ public class GroupActivity extends AppCompatActivity {
         Log.d("debug",mItems.toString());
         text.setText("");
         mListAdapter.notifyDataSetChanged();
+
+
+    }
+
+    public void SaveToGroupList(View view){
+        groupName = (EditText)findViewById(R.id.groupName);
+        Log.d("DEBUG",groupName.getText().toString());
+        Intent intent = new Intent(this, GroupListActivity.class);
+        intent.putExtra("newGroup",groupName.getText().toString());
+        startActivity(intent);
+
+
 
 
     }

@@ -1,5 +1,5 @@
 package splittask.app.com.splittask;
-import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import splittask.app.com.splittask.R;
+import java.util.List;
 
 //import com.arif.listviewexample.R;
 public class CompleteListAdapter extends BaseAdapter {
@@ -53,6 +53,7 @@ public class CompleteListAdapter extends BaseAdapter {
         return v;
     }
 }
+
 class CompleteListViewHolder {
     public TextView mTVItem;
     public CompleteListViewHolder(View base) {
