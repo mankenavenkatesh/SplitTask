@@ -32,11 +32,64 @@
             android:layout_alignParentStart="false"
             android:textColorHint="#4c4cc7"
             android:hint="GroupName" />
-            
-            
+
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginTop="15dp"
+            android:hint="Add participant">
+            <requestFocus />
+        </AutoCompleteTextView>
+
+            <Button
+                android:id="@+id/addBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADD"
+                android:layout_marginTop="15dp"
+                android:onClick="addParticipant"
+               />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+        <ListView
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
+            android:layout_height="699px"
+            android:id="@+id/participantList">
+
+        </ListView>
+
+
+
+        </LinearLayout>
+
+        </ScrollView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"/>
+
+
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
