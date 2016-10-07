@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="splittask.app.com.splittask.TaskActivity"
+    tools:showIn="@layout/activity_group">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            oid:text="Enter Task Name"
+            />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:id="@+id/taskName"
+
+                android:gravity="center"
+                android:layout_marginTop="150dp"
+
+                android:textColorHint="#4c4cc7"
+                android:hint="Task Name" />
+
+
+
+
+            <Button
+                android:id="@+id/addBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADDTASK"
+                android:layout_marginTop="150dp"
+                android:gravity="center"
+                android:onClick="addParticipant"
+                />
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

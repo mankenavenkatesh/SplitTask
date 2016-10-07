@@ -34,6 +34,10 @@
             android:name=".ContactActivity"
             android:label="ADD CONTACT"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".TaskActivity"
+            android:label="ADD TASK"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
