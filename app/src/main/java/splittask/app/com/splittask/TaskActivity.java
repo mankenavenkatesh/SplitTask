@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -60,6 +61,27 @@ public class TaskActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onNothingSelected(AdapterView arg0) {
         // TODO Auto-generated method stub
 
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_daily:
+                if (checked)
+
+                    break;
+            case R.id.radio_weekly:
+                if (checked)
+
+                    break;
+            case R.id.radio_monthly:
+                if (checked)
+
+                    break;
+        }
     }
 
 }

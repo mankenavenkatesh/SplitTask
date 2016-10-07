@@ -13,8 +13,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import splittask.app.com.splittask.ContactActivity;
 import splittask.app.com.splittask.CustomList;
+import splittask.app.com.splittask.CustomListView;
 import splittask.app.com.splittask.R;
 import splittask.app.com.splittask.TaskActivity;
 
@@ -25,6 +25,7 @@ import splittask.app.com.splittask.TaskActivity;
 
 public class TaskFragment extends Fragment {
     String[] tasks={"Production Support","Regression Checks"};
+    String[] dates={"Oct-4","Oct-14"};
     ListView list;
     Toolbar toolbar;
 
@@ -37,7 +38,7 @@ public class TaskFragment extends Fragment {
                 CustomList(getActivity(), tasks);
         list=(ListView)rootView.findViewById(R.id.task_list);
 
-        list.setAdapter(adapter);
+        list.setAdapter(new CustomListView(getActivity(), tasks,dates));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
